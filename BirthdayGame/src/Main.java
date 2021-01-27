@@ -42,7 +42,7 @@ public class Main {
     }
 
     public static boolean checkDuplicates(int[] list){
-        // This function returns True if there is a duplicated value within a list
+        // This function returns true if there is a duplicated value within a list
         // tbh not sure of the most efficient way to do it
         // but it definitely wouldn't involve looking at element i and looking at the rest and seeing if they match element i
         // https://www.techiedelight.com/check-duplicates-array-java/
