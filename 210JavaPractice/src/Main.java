@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Main {
 
-    final static int COLUMN_OF_DURATIONS = 3;
-    final static int NUM_COLUMNS = 6;
-    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\mini.txt";
+    final static int COLUMN_OF_DURATIONS = 3; // TODO this too
+    final static int NUM_COLUMNS = 6;  // TODO could want to parse this instead of have it as a constant that needs CLI input or something
+    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\mini.txt";  // TODO could make this CLI input
 
     // remember to go big picture first, don't get bogged down by details
 
@@ -38,7 +38,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         int numRows = Integer.parseInt(br.readLine());
-        String[][] data = new String[numRows][];
+        String[][] data = new String[numRows][NUM_COLUMNS];  // TODO parse this, perhaps get first line and num elements and create array off that info
 
         while ((line = br.readLine()) != null) {
             j = 0;
