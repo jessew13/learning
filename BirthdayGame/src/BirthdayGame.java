@@ -1,11 +1,12 @@
 /* https://youtu.be/JkIcZxal3Fg?t=263
 "If you have a room of 23 people, there's a 50% chance that at least 2 of them have the same birthday."
 In this file, I create a simulation of this under the assumption that there are 365 days in a year (i.e. exclude February 29).
+I also assume that each of the 365 days has an equal chance of being a person's birthday.
  */
 import java.util.*;
 
 
-public class Main {
+public class BirthdayGame {
 
     final static int DAYS_IN_YEAR = 365;
     final static int TRIALS = 100000;
