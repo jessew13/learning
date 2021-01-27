@@ -7,7 +7,7 @@ public class Main {
 
     final static int COLUMN_OF_DURATIONS = 3;
     final static int NUM_COLUMNS = 6;
-    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\mini.txt";
+    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\mini.txt"; // double backslash to avoid exit things like \t \n
 
     // remember to go big picture first, don't get bogged down by details
 
