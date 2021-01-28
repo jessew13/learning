@@ -1,5 +1,8 @@
 // Prompt for this can be found here: https://www.cs.unc.edu/~stotts/COMP210-s21/Java/ufo.html
 // I THINK THIS IS NOW FULLY FUNCTIONAL!!! - me at 4:00 am after working on the rest of this since like 2:00 am
+// time for mini.txt (5 entries): 0.031 s
+// time for medium.txt (500 entries): 0.051 s
+// time for large.txt (50000 entries): 0.23 s
 
 import java.io.*;
 import java.util.*;
@@ -8,7 +11,7 @@ public class Main {
 
     final static int COLUMN_OF_DURATIONS = 3; // TODO this too
     final static int NUM_COLUMNS = 6;  // TODO could want to parse this instead of have it as a constant that needs CLI input or something
-    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\mini.txt";  // TODO make this CLI input
+    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\large.txt";  // TODO make this CLI input
     final static int COLUMN_SHAPE = 2;
     final static int COLUMN_LATITUDE = 4;
     final static int COLUMN_LONGITUDE = 5;
@@ -16,6 +19,8 @@ public class Main {
     // remember to go big picture first, don't get bogged down by details
 
     public static void main(String[] args) throws Exception {
+        // start timer
+        double start = System.currentTimeMillis();
 
         // call readTxt to get data
         String[][] data = readTxt(PATH);
@@ -49,12 +54,16 @@ public class Main {
             System.out.printf("\tLocation: (%.2f, %.2f)\n", (x[2] / (int)(x[0])), (x[3] / (int)(x[0])));
         }
 
+        // end timer
+        double end = System.currentTimeMillis();
+        System.out.println("Processing time: " + (end - start) / 1000 + " seconds.");
+
 
     }
 
     // a function that takes in the data's file path and returns a String matrix of the data
     public static String[][] readTxt(String path) throws Exception{
-        File file = new File(PATH);
+        File file = new File(path);
         String line;
         String delimiter = " ";
         int i = 0;
