@@ -7,7 +7,7 @@ public class Main {
 
     final static int COLUMN_OF_DURATIONS = 3; // TODO this too
     final static int NUM_COLUMNS = 6;  // TODO could want to parse this instead of have it as a constant that needs CLI input or something
-    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\mini.txt";  // TODO could make this CLI input
+    final static String PATH = "C:\\Users\\jesse\\IdeaProjects\\learning\\210JavaPractice\\data\\large.txt";  // TODO make this CLI input
 
     // remember to go big picture first, don't get bogged down by details
 
@@ -16,13 +16,24 @@ public class Main {
         // call readTxt to get data
         String[][] data = readTxt(PATH);
 
-        printArray(data);
+        // printArray(data);
 
         // call convertToIntArray(data, COLUMN_OF_DURATIONS)
+        int[] durations = convertToIntArray(data, COLUMN_OF_DURATIONS);
 
         // call maxMinArray to get the row indices of the max and min durations
+        int[] maxMinIndices = maxMinArray(durations);
 
         // print out info for those row indices from matrix
+        // could use a loop here but since it's just two parts, nah
+        System.out.println("Longest sighting:");
+        System.out.println("\tWhen: " + data[maxMinIndices[0]][0] + " " + data[maxMinIndices[0]][1]);
+        System.out.println("\tShape: " + data[maxMinIndices[0]][2]);
+        System.out.printf("\tWhere: (%.2f, %.2f)", Double.parseDouble(data[maxMinIndices[0]][4]), Double.parseDouble(data[maxMinIndices[0]][5]));
+        System.out.println("\nShortest sighting:");
+        System.out.println("\tWhen: " + data[maxMinIndices[1]][0] + " " + data[maxMinIndices[1]][1]);
+        System.out.println("\tShape: " + data[maxMinIndices[1]][2]);
+        System.out.printf("\tWhere: (%.2f, %.2f)", Double.parseDouble(data[maxMinIndices[1]][4]), Double.parseDouble(data[maxMinIndices[1]][5]));
 
 
     }
@@ -55,28 +66,50 @@ public class Main {
 
     // a function that converts a column within a String matrix to an array of numerical data, can be int or float
     public static int[] convertToIntArray(String[][] data, int j){
-        int[] x = new int[0];
+        int[] x = new int[data.length];
+        for (int i = 0; i < data.length; i++){
+            x[i] = Integer.parseInt(data[i][j]);
+        }
         return x;
     }
 
     // might not need this one, we'll see
     public static double[] convertToFloatArray(String[][] data, int j){
-        double[] x = new double[0];
-        return x;
+        return new double[0];
     }
 
     // a function that finds the indices of the max and min elements of a numerical array, returns it
     // could actually write two functions with the same name but with different PARAM types here (not return types)
 
-    private static int[] maxMinArray(int[] data){
-        int[] x = new int[0];
+    private static int[] maxMinArray(int[] data){  // TODO test functionality
+        // 0th element is max, 1st element is min
+        // I don't need the actual max and min for this specific program but track it anyway
+        int[] x = new int[2];
+        int max = data[0];
+        int min = data[0];
+        int maxIndex = -1;
+        int minIndex = -1;
+        for (int i = 1; i < data.length; i++){
+            if (data[i] >= max){  // put >= here because the prompt says "in case of ties, report the one that comes later in the program"
+                max = data[i];
+                maxIndex = i;
+            }
+
+            else if (data[i] <= min){
+                min = data[i];
+                minIndex = i;
+            }
+        }
+
+        x[0] = maxIndex;
+        x[1] = minIndex;
         return x;
     }
 
     private static void printArray(String[][] data){
-        for (int i = 0; i < data.length; i++){
-            for (int j = 0; j < data[i].length; j++){
-                System.out.print(data[i][j] + " ");
+        for (String[] datum : data) {  // enhanced for LOL
+            for (String s : datum) {
+                System.out.print(s + " ");
             }
             System.out.println();
         }
