@@ -7,7 +7,6 @@ public class L4JavaBasics {
         if (s1 == s2) System.out.println("Same");  // Same
         else System.out.println("Different");
 
-
         String s3 = "tarheels";
         String s4 = new String("tarheels");
 
@@ -16,8 +15,10 @@ public class L4JavaBasics {
 
         // use .equals() for Strings to compare the characters, not the references
 
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3};
 
-
+        System.out.println(a == b);  // false
 
     }
 }
