@@ -123,7 +123,6 @@ public class Main {
                 minIndex = i;
             }
         }
-
         x[0] = maxIndex;
         x[1] = minIndex;
         return x;
