@@ -18,8 +18,8 @@ public class AsciiTextAnimation {
         // Create new scanner for getting input as to what needs to be encoded in ASCII
         Scanner input = new Scanner(System.in);
 
-        // Ask for input
-        System.out.println("What would you like encoded in ASCII?");
+        // Get input
+        // System.out.println("What would you like encoded in ASCII?");
         String original = input.nextLine();
 
         // Determine number of chars/columns needed (columns = 6 * numChars - 2)
