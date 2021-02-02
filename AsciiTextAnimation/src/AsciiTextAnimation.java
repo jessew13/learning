@@ -32,10 +32,21 @@ public class AsciiTextAnimation {
         }
     }
 
-    private static void drawChar(char ch, String[][] matrix, int numChar){  // TODO remember to 0-index numChar
+    private static void drawChar(char ch, String[][] matrix, int numChar){
         column = 6 * numChar;
         switch (ch){
             case ' ': break;  // TODO maybe pause here?
+            case '!':
+                for (int i = 0; i < 3; i++){
+                    matrix[i][column + 1] = "|";
+                    displayMatrix(matrix);
+                    pause();
+                }
+
+                matrix[4][column + 1] = "O";
+                displayMatrix(matrix);
+                pause();
+                break;
             case 'A':
                 for (int i = 4; i > 1; i--){
                     matrix[i][column] = "|";
@@ -81,7 +92,20 @@ public class AsciiTextAnimation {
                 pause();
                 break;
 
-            case 'C': ;
+            case 'C':
+                for (int i = 0; i < 4; i++){
+                    matrix[0][column + i] = "_";
+                    matrix[4][column + i] = "-";
+                    displayMatrix(matrix);
+                    pause();
+                }
+
+                for (int i = 1; i < 4; i++){
+                    matrix[i][column] = "|";
+                    displayMatrix(matrix);
+                    pause();
+                }
+                break;
             case 'D':
                 for (int i = 0; i < VERTICAL_LENGTH; i++){
                     matrix[i][column] = "|";
@@ -104,6 +128,21 @@ public class AsciiTextAnimation {
                 displayMatrix(matrix);
                 pause();
                 break;
+            case 'E':
+                for (int i = 1; i < VERTICAL_LENGTH; i++){
+                    matrix[i][column] = "|";
+                    displayMatrix(matrix);
+                    pause();
+                }
+
+                for (int i = 1; i < HORIZONTAL_WIDTH; i++){
+                    matrix[0][column + i] = "_";
+                    matrix[2][column + i] = "_";
+                    matrix[4][column + i] = "_";
+                    displayMatrix(matrix);
+                    pause();
+                }
+                break;
             case 'H':
                 for (int i = 0; i < VERTICAL_LENGTH; i++){
                     matrix[i][column] = "|";
@@ -117,6 +156,53 @@ public class AsciiTextAnimation {
                 matrix[2][column + 2] = "-";
                 displayMatrix(matrix);
                 pause();
+                break;
+            case 'L':
+                for (int i = 0; i < 4; i++){
+                    matrix[i][column] = "|";
+                    displayMatrix(matrix);
+                    pause();
+                }
+                for (int i = 0; i < 4; i++){
+                    matrix[4][column + i] = "_";
+                    displayMatrix(matrix);
+                    pause();
+                }
+                break;
+            case 'R':
+                for (int i = 1; i < VERTICAL_LENGTH; i++){
+                    matrix[i][column] = "|";
+                    displayMatrix(matrix);
+                    pause();
+                }
+                matrix[0][column + 1] = "_";
+                matrix[0][column + 2] = "_";
+                displayMatrix(matrix);
+                pause();
+
+                matrix[1][column + 3] = "\\";
+                displayMatrix(matrix);
+                pause();
+                matrix[2][column + 3] = "/";
+                matrix[3][column + 2] = "/";
+                displayMatrix(matrix);
+                pause();
+                matrix[4][column + 2] = "\\";
+                displayMatrix(matrix);
+                pause();
+                break;
+            case 'T':
+                for (int i = 0; i < HORIZONTAL_WIDTH; i++){
+                    matrix[0][column + i] = "_";
+                    displayMatrix(matrix);
+                    pause();
+                }
+
+                for (int i = 1; i < VERTICAL_LENGTH; i++){
+                    matrix[i][column + 2] = "|";
+                    displayMatrix(matrix);
+                    pause();
+                }
                 break;
             case 'Y':
                 for (int i = 0; i < 2; i++){
