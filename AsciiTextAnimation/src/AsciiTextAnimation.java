@@ -1,6 +1,10 @@
-import java.util.*;
+/*
+Enter some text after running this code.
+Your text will be printed out (gradually, looks animated) using only ASCII characters.
+Currently, the allowed characters are (all caps) [A, B, C, D, E, H, L, R, T, Y, !, space]
+*/
 
-// Thread.sleep(milliseconds);
+import java.util.*;
 
 public class AsciiTextAnimation {
 
