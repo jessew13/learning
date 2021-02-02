@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/210JavaPractice/210JavaPractice.iml" filepath="$PROJECT_DIR$/210JavaPractice/210JavaPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AsciiTextAnimation/AsciiTextAnimation.iml" filepath="$PROJECT_DIR$/AsciiTextAnimation/AsciiTextAnimation.iml" />
       <module fileurl="file://$PROJECT_DIR$/BirthdayGame/BirthdayGame.iml" filepath="$PROJECT_DIR$/BirthdayGame/BirthdayGame.iml" />
       <module fileurl="file://$PROJECT_DIR$/GaussianElimination/GaussianElimination.iml" filepath="$PROJECT_DIR$/GaussianElimination/GaussianElimination.iml" />
       <module fileurl="file://$PROJECT_DIR$/Notes/Notes.iml" filepath="$PROJECT_DIR$/Notes/Notes.iml" />
