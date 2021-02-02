@@ -11,7 +11,7 @@ public class AsciiTextAnimation {
     static int column;
     final static int VERTICAL_LENGTH = 5;
     final static int HORIZONTAL_WIDTH = 4;
-    final static int DELAY = 100;  // in milliseconds
+    final static int DELAY = 250;  // in milliseconds
     final static int NUM_SPACES = 3;
 
     public static void main(String[] args){
@@ -168,7 +168,7 @@ public class AsciiTextAnimation {
                     pause();
                 }
                 for (int i = 0; i < 4; i++){
-                    matrix[4][column + i] = "_";
+                    matrix[4][column + i] = "-";
                     displayMatrix(matrix);
                     pause();
                 }
