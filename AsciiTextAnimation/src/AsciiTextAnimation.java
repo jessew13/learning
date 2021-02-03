@@ -11,7 +11,7 @@ public class AsciiTextAnimation {
     static int column;
     final static int VERTICAL_LENGTH = 5;
     final static int HORIZONTAL_WIDTH = 4;
-    final static int DELAY = 250;  // in milliseconds
+    final static int DELAY = 1;  // in milliseconds
     final static int NUM_SPACES = 3;
 
     public static void main(String[] args){
@@ -25,7 +25,7 @@ public class AsciiTextAnimation {
         // Determine number of chars/columns needed (columns = 6 * numChars - 2)
         int numChars = original.length();
 
-        // Create matrix, TODO initialize with all spaces
+        // Create matrix
         String[][] matrix = new String[VERTICAL_LENGTH][(HORIZONTAL_WIDTH + NUM_SPACES) * numChars - NUM_SPACES];  // 6, representing horizontal width and numSpaces, could be a constant, or make it (4+numSpaces) * numChars - numSpaces
         fillMatrixWithSpaces(matrix);
 
@@ -33,11 +33,6 @@ public class AsciiTextAnimation {
         for (int c = 0; c < original.length(); c++){
             char ch = original.charAt(c);
             drawChar(ch, matrix, c);
-        }
-        try{
-            Thread.sleep(10000);
-        } catch (InterruptedException ex){
-            Thread.currentThread().interrupt();
         }
 
     }
