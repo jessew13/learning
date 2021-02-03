@@ -34,6 +34,12 @@ public class AsciiTextAnimation {
             char ch = original.charAt(c);
             drawChar(ch, matrix, c);
         }
+        try{
+            Thread.sleep(10000);
+        } catch (InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
+
     }
 
     private static void drawChar(char ch, String[][] matrix, int numChar){
