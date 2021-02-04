@@ -11,7 +11,7 @@ public class AsciiTextAnimation {
     static int column;
     final static int VERTICAL_LENGTH = 5;
     final static int HORIZONTAL_WIDTH = 4;
-    final static int DELAY = 1;  // in milliseconds
+    final static int DELAY = 250;  // in milliseconds
     final static int NUM_SPACES = 3;
 
     public static void main(String[] args){
@@ -34,7 +34,11 @@ public class AsciiTextAnimation {
             char ch = original.charAt(c);
             drawChar(ch, matrix, c);
         }
-
+        try{
+            Thread.sleep(10000);
+        } catch (InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
     }
 
     private static void drawChar(char ch, String[][] matrix, int numChar){
@@ -162,6 +166,49 @@ public class AsciiTextAnimation {
                 displayMatrix(matrix);
                 pause();
                 break;
+            case 'I':
+                matrix[2][column + 2] = "|";
+                displayMatrix(matrix);
+                pause();
+                matrix[1][column + 2] = "|";
+                matrix[3][column + 2] = "|";
+                displayMatrix(matrix);
+                pause();
+                matrix[0][column + 2] = "-";
+                matrix[4][column + 2] = "-";
+                displayMatrix(matrix);
+                pause();
+                matrix[0][column + 3] = "-";
+                matrix[4][column + 3] = "-";
+                matrix[0][column + 1] = "-";
+                matrix[4][column + 1] = "-";
+                displayMatrix(matrix);
+                pause();
+                matrix[0][column] = "-";
+                matrix[4][column] = "-";
+                displayMatrix(matrix);
+                pause();
+                break;
+            case 'K':
+                matrix[2][column + 1] = "-";
+                matrix[2][column + 2] = "-";
+                matrix[2][column] = "|";
+                displayMatrix(matrix);
+                pause();
+                matrix[1][column] = "|";
+                matrix[3][column] = "|";
+                matrix[1][column + 3] = "/";
+                matrix[3][column + 3] = "\\";
+                displayMatrix(matrix);
+                pause();
+                matrix[0][column] = "|";
+                matrix[0][column + 3] = "|";
+                matrix[4][column] = "|";
+                matrix[4][column + 3] = "|";
+                displayMatrix(matrix);
+                pause();
+                break;
+
             case 'L':
                 for (int i = 0; i < 4; i++){
                     matrix[i][column] = "|";
@@ -189,9 +236,15 @@ public class AsciiTextAnimation {
                 displayMatrix(matrix);
                 pause();
                 matrix[2][column + 3] = "/";
-                matrix[3][column + 2] = "/";
                 displayMatrix(matrix);
                 pause();
+                matrix[2][column + 2] = "_";
+                displayMatrix(matrix);
+                pause();
+                matrix[2][column + 1] = "_";
+                displayMatrix(matrix);
+                pause();
+                matrix[3][column + 1] = "\\";
                 matrix[4][column + 2] = "\\";
                 displayMatrix(matrix);
                 pause();
