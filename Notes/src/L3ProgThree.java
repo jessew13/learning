@@ -1,4 +1,4 @@
-public class L4ProgThree {
+class L4ProgThree {
 
     public static void main(String[] args){
         ThingOne ob1 = new ThingOne("Argle Bargle", 70);

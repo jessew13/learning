@@ -1,4 +1,4 @@
-public class L4ProgTwo {
+public class L3ProgTwo {
 
     static int x = 17;  // this goes into the heap, every object has memory allocated for x and num
     // every object will be able to see x, and x will be shared such that if changed in one object, OTHER OBJECTS SEE THE CHANGE
